@@ -176,8 +176,19 @@ body {
 .foot-links a:hover { color: var(--accent); }
 
 @media (max-width: 480px) {
-  body { font-size: 16px; }
+  /* 본문 크기는 줄이지 않는다 — 한글 세리프는 작아질수록 획이 뭉개진다 */
   .sheet { padding-top: 3.2rem; }
   .wordmark { font-size: 1.7rem; }
-  .post-list li { gap: 0.8rem; }
+  /* 목록은 줄 간격만 조금 벌린다 — 손가락으로 옆 글을 잘못 누르지 않게 */
+  .post-list li { gap: 0.8rem; padding: 0.5rem 0; }
+
+  /* 인라인 링크(머리 차림표·발문)는 위쪽 여백만 키워 누를 면적을 넓힌다.
+     인라인 요소라 줄 높이는 그대로고 밑줄 위치도 안 움직인다. */
+  .site-nav a,
+  .foot-links a { padding-top: 0.5rem; }
+}
+
+/* 아주 좁은 화면에서는 좌우 여백을 조금 덜어, 한 줄에 담기는 글자 수를 지킨다 */
+@media (max-width: 380px) {
+  .sheet { padding-left: 1.05rem; padding-right: 1.05rem; }
 }
